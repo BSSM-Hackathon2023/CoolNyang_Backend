@@ -7,7 +7,7 @@ const updateSetting = (temperature, humidity, authId) => {
     },{
         where:{
             id: authId
-        }
+        }``
     }).catch((err) => {
         console.log(err)
     })

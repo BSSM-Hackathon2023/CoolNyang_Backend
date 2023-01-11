@@ -9,10 +9,7 @@ router.post('/api/user/setting',auth,async (req, res, next) =>{
         return res.status(415).send('Fill All Requirement');
     }
 
-    /**
-     * auth 받아온거에서 authId를 뽑아와야함
-     */
-    let authId
+    let authId = req.userId
 
     userRepository.updateSetting(temperature, humidity, authId)
 })
