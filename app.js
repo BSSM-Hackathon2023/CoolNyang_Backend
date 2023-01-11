@@ -1,8 +1,10 @@
-var express = require('express');;
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+require('better-module-alias')(__dirname);
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const cors = require("cors");
-const models = require("./database/models");
+const models = require("@database/models");
+const authController = require('@routes/auth/Login.controller');
 
 var app = express();
 
@@ -18,14 +20,14 @@ app.use(
         credentials: true,
     }),
 );
-
-// models.sequelize.sync({ force: false })
-//     .then(() => {
-//         console.log('데이터베이스 연결 성공');
-//     })
-//     .catch((err) => {
-//         console.error(err);
-//     });
+app.use('/auth', authController);
+models.sequelize.sync({ force: true })
+    .then(() => {
+        console.log('데이터베이스 연결 성공');
+    })
+    .catch((err) => {
+        console.error(err);
+    });
 
 
 app.use(function(req, res, next) {
