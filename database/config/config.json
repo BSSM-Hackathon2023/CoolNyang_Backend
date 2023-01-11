@@ -1,0 +1,44 @@
+{
+  "development": {
+    "username": "root",
+    "password": "1234",
+    "database": "T_ShapedPeopleDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false,
+    "timezone": "Asia/Seoul",
+    "dialectOptions": {
+      "charset": "utf8mb4",
+      "dateStrings": true,
+      "typeCast": true
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": "1234",
+    "database": "T_ShapedPeopleDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false,
+    "timezone": "Asia/Seoul",
+    "dialectOptions": {
+      "charset": "utf8mb4",
+      "dateStrings": true,
+      "typeCast": true
+    }
+  },
+  "production": {
+    "username": "root",
+    "password": "1234",
+    "database": "T_ShapedPeopleDB",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false,
+    "timezone": "Asia/Seoul",
+    "dialectOptions": {
+      "charset": "utf8mb4",
+      "dateStrings": true,
+      "typeCast": true
+    }
+  }
+}
