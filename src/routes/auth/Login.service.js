@@ -1,11 +1,11 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const models = require('../../database/models');
+const models = require('@database/models');
 require("dotenv").config();
 const jwtSecret = process.env.JWT_SECRET;
 const LoginService = (id,password) => {
-    const hashPassword = bcrypt.hash(password, 12);
-    const user = models.user.findOne({
+    const hashPassword = bcrypt.hashSync(password, 12);
+    const user = models.Users.findOne({
         where: {
             id: id,
             password: hashPassword

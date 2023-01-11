@@ -1,7 +1,7 @@
-const models = require("../database/models");
+const models = require("@database/models");
 
 const updateSetting = (temperature, humidity, authId) => {
-    models.User.UPDATE({
+    models.Users.UPDATE({
         temperature: temperature,
         humidity: humidity
     },{
@@ -14,7 +14,7 @@ const updateSetting = (temperature, humidity, authId) => {
 }
 
 const findById = (authId) => {
-    const temp = models.User.findOne({
+    const temp = models.Users.findOne({
         where:{
             id: authId
         }
@@ -24,6 +24,13 @@ const findById = (authId) => {
 
     return temp
 }
-
+const createUser = (id, password, name) => {
+    models.Users.create({
+        id: id,
+        password: password,
+        name: name
+    })
+}
+exports.createUser = createUser;
 exports.updateSetting = updateSetting;
 exports.findById = findById;

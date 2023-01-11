@@ -1,7 +1,9 @@
 const { PythonShell } = require("python-shell");
-const userRepository = require('/Utils/userRepository');
-const stateRepository = require('/Utils/nowStateRepository');
+const userRepository = require('@Utils/userRepository');
+const stateRepository = require('@Utils/nowStateRepository');
 const {now} = require("sequelize/lib/utils");
+const express = require('express');
+const router = express.Router();
 
 router.get('/api/recommend/temp',auth,async (req, res, next) =>{
     let authId = req.userId
@@ -19,3 +21,5 @@ router.get('/api/recommend/temp',auth,async (req, res, next) =>{
         console.log(data);
     });
 })
+
+module.exports = router;
