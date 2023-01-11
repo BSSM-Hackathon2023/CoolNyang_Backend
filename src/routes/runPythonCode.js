@@ -5,20 +5,26 @@ const {now} = require("sequelize/lib/utils");
 const express = require('express');
 const router = express.Router();
 
-router.get('/api/recommend/temp',auth,async (req, res, next) =>{
-    let authId = req.userId
-    let user = userRepository.findById(authId)
+router.get('/',async (req, res, next) =>{
+    // let authId = req.userId
+    // let user = userRepository.findById(authId)
 
-    let nowState = stateRepository.getNowState();
+    // let nowState = stateRepository.getNowState();
 
     let options = {
-        scriptPath: "/Users/leechangbo/study/CoolNyang_Backend",
-        // 파이썬 코드로 설정 온도,습도 지금 온도 습도 빛 소리
-        args: [user.temperature, user.humidity, nowState.temperature, nowState.humidity, nowState.heatIndex, nowState.light]
+        scriptPath: "./src/routes",
+        // 파이썬 코드로 설정 온도,습도 지금 온도 습도 빛
+        // args: [user.temperature, user.humidity, nowState.temperature, nowState.humidity, nowState.heatIndex, nowState.light]
+        args: [19, 30, 2, 15, 20]
     };
-    PythonShell.run("my_script.py", options, function(err, data) {
+    PythonShell.run("analyze.py", options, function(err, data) {
         if (err) throw err;
         console.log(data);
+        return res.status(200).json({
+            temperature: data[0],
+            humidity: data[1],
+            light: data[2]
+        })
     });
 })
 
