@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "1234",
-    "database": "T_ShapedPeopleDB",
+    "database": "coolnyang",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false,
@@ -16,7 +16,7 @@
   "test": {
     "username": "root",
     "password": "1234",
-    "database": "T_ShapedPeopleDB",
+    "database": "coolnyang",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false,
@@ -30,7 +30,7 @@
   "production": {
     "username": "root",
     "password": "1234",
-    "database": "T_ShapedPeopleDB",
+    "database": "coolnyang",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false,
