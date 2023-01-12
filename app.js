@@ -5,8 +5,9 @@ const logger = require('morgan');
 const cors = require("cors");
 const models = require("@database/models");
 const authController = require('@routes/auth/Login.controller');
+const stateController = require('@routes/state/state.controller');
 const runPythonCode = require('@routes/runPythonCode');
-
+const setUserRequest = require('@routes/setUserRequest');
 var app = express();
 
 app.use(logger('dev'));
@@ -22,8 +23,10 @@ app.use(
     }),
 );
 app.use('/auth', authController);
+app.use('/state', stateController);
 app.use('/api/recommend/temp', runPythonCode);
-models.sequelize.sync({ force: true })
+app.use('/api/user/setting',setUserRequest);
+models.sequelize.sync({ force: false })
     .then(() => {
         console.log('데이터베이스 연결 성공');
     })

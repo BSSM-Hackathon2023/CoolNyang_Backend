@@ -10,8 +10,7 @@ exports.Login = (req, res, next) => {
     try {
         req.userId = jwt.verify(req.headers.token, SECRET_KEY);
         return next();
-    }
-    catch (error) {
+    } catch (error) {
         // 유효시간이 초과된 경우
         if (error.name === 'TokenExpiredError') {
             return res.status(419).json({
@@ -34,8 +33,7 @@ exports.NotLogin = (req, res, next) => {
     try {
         req.decoded = jwt.verify(req.headers.token, SECRET_KEY);
         return res.status(403).send('이미 로그인 되어있습니다');
-    }
-    catch (error) {
+    } catch (error) {
         return next();
     }
 }

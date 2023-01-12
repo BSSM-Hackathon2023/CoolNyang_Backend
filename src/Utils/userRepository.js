@@ -1,13 +1,13 @@
 const models = require("@database/models");
 
 const updateSetting = (temperature, humidity, authId) => {
-    models.Users.UPDATE({
+    models.Users.update({
         temperature: temperature,
         humidity: humidity
-    },{
-        where:{
+    }, {
+        where: {
             id: authId
-        }``
+        }
     }).catch((err) => {
         console.log(err)
     })
@@ -15,7 +15,7 @@ const updateSetting = (temperature, humidity, authId) => {
 
 const findById = (authId) => {
     const temp = models.Users.findOne({
-        where:{
+        where: {
             id: authId
         }
     }).then(result =>

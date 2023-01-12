@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const models = require('@database/models');
 require("dotenv").config();
 const jwtSecret = process.env.JWT_SECRET;
-const { createUser } = require('@Utils/userRepository');
-const RegisterService = (id,password,name) => {
+const {createUser} = require('@Utils/userRepository');
+const RegisterService = (id, password, name) => {
     try {
         if (id == null || password == null) {
             return {
@@ -21,7 +21,7 @@ const RegisterService = (id,password,name) => {
         }, jwtSecret, {
             expiresIn: '6h'
         })
-    }catch (e){
+    } catch (e) {
         return {
             code: 500,
             message: "Internal Server Error"

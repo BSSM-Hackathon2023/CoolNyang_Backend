@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const models = require('@database/models');
 require("dotenv").config();
 const jwtSecret = process.env.JWT_SECRET;
-const LoginService = (id,password) => {
+const LoginService = (id, password) => {
     const hashPassword = bcrypt.hashSync(password, 12);
     const user = models.Users.findOne({
         where: {

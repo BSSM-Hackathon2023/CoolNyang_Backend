@@ -13,14 +13,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.FLOAT,
             allowNull: false
         },
-        windChill : {
+        windChill: {
             type: DataTypes.FLOAT,
             allowNull: false
         },
-        light : {
-            type: DataTypes.FLOAT,
-            allowNull: false
-        }
 
     }, {
         timestamps: true,

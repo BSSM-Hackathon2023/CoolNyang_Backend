@@ -1,10 +1,9 @@
 const models = require("@database/models");
 
 const getNowState = () => {
-    return models.state.findOne({
-        where:{
-            id: 1
-        }
+    return models.state.findAll({
+        limit: 1,
+        order: [['createdAt', 'DESC']]
     }).then(result =>
         JSON.parse(JSON.stringify(result))
     ).catch((err) => {
