@@ -17,7 +17,6 @@ nLight = json.loads(sys.argv[5])
 wLight = 50
 
 
-result = nTem - wTem
 if result > 0:
     print('-'+str(result))
 elif result < 0:
@@ -26,7 +25,7 @@ elif result < 0:
 else:
     print("0")
 
-result = nHum - wHum
+
 if result > 0:
     print('-'+str(result))
 elif result < 0:
@@ -35,7 +34,6 @@ elif result < 0:
 else:
     print("0")
 
-result = nLight - wLight
 if result > 0:
     print('-'+str(result))
 elif result < 0:

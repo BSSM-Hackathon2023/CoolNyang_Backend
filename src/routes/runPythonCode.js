@@ -16,7 +16,6 @@ router.get('/', Login,async (req, res) => {
             scriptPath: "./src/routes",
             // 파이썬 코드로 설정 온도,습도 지금 온도 습도 빛
              args: [user.temperature, user.humidity, nowState.temperature, nowState.humidity, nowState.windChill, nowState.light]
-            //args: [19, 30, 2, 15, 20]
         };
         PythonShell.run("analyze.py", options, function (err, data) {
             if (err) throw err;
